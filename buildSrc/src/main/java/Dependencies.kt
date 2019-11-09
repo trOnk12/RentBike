@@ -27,6 +27,9 @@ object Versions {
     const val retrofit = "2.6.1"
     const val gson = "2.8.6"
     const val httpLoggingInterceptor = "4.2.1"
+
+    const val rxjava = "2.2.14"
+    const val rxjavaAndroid = "2.1.1"
 }
 
 object StandardLibraries {
@@ -50,6 +53,9 @@ object ExternalLibaries {
     const val httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.httpLoggingInterceptor}"
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
     const val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.gsonConverter}"
+
+    const val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxjava}"
+    const val rxjavaAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxjavaAndroid}"
 }
 
 object GoogleLibaries {

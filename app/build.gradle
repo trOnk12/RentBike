@@ -47,5 +47,7 @@ dependencies {
     implementation ExternalLibaries.gsonConverter
     implementation ExternalLibaries.httpLoggingInterceptor
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation ExternalLibaries.rxjava
+    implementation ExternalLibaries.rxjavaAndroid
 
 }
