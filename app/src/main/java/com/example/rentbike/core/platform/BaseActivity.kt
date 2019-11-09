@@ -4,10 +4,14 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.rentbike.AndroidApplication
+import com.example.rentbike.core.Navigator
 import com.example.rentbike.core.di.ApplicationComponent
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var navigator : Navigator
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
