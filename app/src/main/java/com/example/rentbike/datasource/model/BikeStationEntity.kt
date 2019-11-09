@@ -5,3 +5,7 @@ data class BikeStationEntity (
 	@SerializedName("crs") val crs : Crs,
 	@SerializedName("type") val type : String
 )
+
+fun BikeStationEntity.mapToDomain(){
+	features.map {  }
+}

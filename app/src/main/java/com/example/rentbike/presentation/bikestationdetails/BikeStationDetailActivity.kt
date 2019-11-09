@@ -21,7 +21,6 @@ class BikeStationDetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bike_station_detail_activity)
-
         appComponent.inject(this)
     }
 }
