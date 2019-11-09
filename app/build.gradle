@@ -5,15 +5,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion DefaultConfig.compiledSdkVersion
+    buildToolsVersion DefaultConfig.buildToolsVersion
     defaultConfig {
-        applicationId "com.example.rentbike"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId DefaultConfig.applicationId
+        minSdkVersion DefaultConfig.minSdkVersion
+        targetSdkVersion DefaultConfig.targetSdkVersion
+        versionCode DefaultConfig.versionCode
+        versionName DefaultConfig.versionName
+        testInstrumentationRunner DefaultConfig.testInstrumentationRunner
     }
     buildTypes {
         release {
@@ -25,11 +25,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation Dependencies.Standard.appCompat
-    implementation Dependencies.Standard.coreKtx
-    implementation Dependencies.Standard.constraintLayout
-    testImplementation Dependencies.Standard.jUnit
-    androidTestImplementation Dependencies.Standard.testRunner
-    androidTestImplementation Dependencies.Standard.espressoCore
+    implementation StandardLibraries.kotlinStd
+    implementation StandardLibraries.appCompat
+    implementation StandardLibraries.coreKtx
+    implementation StandardLibraries.constraintLayout
+    testImplementation TestLibaries.jUnit
+    androidTestImplementation TestLibaries.testRunner
+    androidTestImplementation TestLibaries.espressoCore
 }
