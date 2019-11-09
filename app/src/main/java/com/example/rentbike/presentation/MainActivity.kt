@@ -1,7 +1,8 @@
-package com.example.rentbike
+package com.example.rentbike.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.rentbike.R
 
 class MainActivity : AppCompatActivity() {
 
