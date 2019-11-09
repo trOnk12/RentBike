@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RentBike</string>
+    <string name="available_bikes">Available bikes</string>
+    <string name="available_places">Available places</string>
 </resources>

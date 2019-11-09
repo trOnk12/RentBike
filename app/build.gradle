@@ -25,12 +25,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation TestLibaries.jUnit
+    androidTestImplementation TestLibaries.testRunner
+    androidTestImplementation TestLibaries.espressoCore
+
     implementation StandardLibraries.kotlinStd
     implementation StandardLibraries.appCompat
     implementation StandardLibraries.coreKtx
     implementation StandardLibraries.constraintLayout
-    testImplementation TestLibaries.jUnit
-    androidTestImplementation TestLibaries.testRunner
-    androidTestImplementation TestLibaries.espressoCore
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation StandardLibraries.recyclerView
 }
