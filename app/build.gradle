@@ -32,4 +32,5 @@ dependencies {
     testImplementation TestLibaries.jUnit
     androidTestImplementation TestLibaries.testRunner
     androidTestImplementation TestLibaries.espressoCore
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }

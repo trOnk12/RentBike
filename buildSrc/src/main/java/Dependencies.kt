@@ -14,6 +14,7 @@ object Versions {
     const val appCompat = "1.1.0"
     const val coreKtx = "1.1.0"
     const val constraintLayout = "1.1.3"
+    const val recyclerView = "1.0.0"
 
     const val jUnit = "4.12"
     const val testRunner = "1.2.0"
@@ -25,6 +26,7 @@ object StandardLibraries {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
 }
 
 object TestLibaries {
