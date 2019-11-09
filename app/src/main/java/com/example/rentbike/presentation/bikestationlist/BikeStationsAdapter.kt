@@ -7,9 +7,11 @@ import com.example.rentbike.R
 import com.example.rentbike.core.extension.inflate
 import com.example.rentbike.presentation.model.BikeStationItem
 import kotlinx.android.synthetic.main.bike_station_info.view.*
+import javax.inject.Inject
 import kotlin.properties.Delegates
 
-class BikeStationsAdapter : RecyclerView.Adapter<BikeStationsAdapter.ViewHolder>() {
+class BikeStationsAdapter
+@Inject constructor() : RecyclerView.Adapter<BikeStationsAdapter.ViewHolder>() {
 
     var bikeStations: List<BikeStationItem> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
