@@ -10,6 +10,7 @@ object DefaultConfig {
 }
 
 object Versions {
+    const val gsonConverter = "2.6.2"
     const val kotlinStd = "1.3.31"
     const val appCompat = "1.1.0"
     const val coreKtx = "1.1.0"
@@ -19,6 +20,13 @@ object Versions {
     const val jUnit = "4.12"
     const val testRunner = "1.2.0"
     const val espressoCore = "3.2.0"
+
+    const val dagger = "2.25.2"
+    const val daggerCompiler = "2.25.2"
+
+    const val retrofit = "2.6.1"
+    const val gson = "2.8.6"
+    const val httpLoggingInterceptor = "4.2.1"
 }
 
 object StandardLibraries {
@@ -36,7 +44,12 @@ object TestLibaries {
 }
 
 object ExternalLibaries {
-
+    const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.daggerCompiler}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.httpLoggingInterceptor}"
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
+    const val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.gsonConverter}"
 }
 
 object GoogleLibaries {
