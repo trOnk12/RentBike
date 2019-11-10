@@ -9,8 +9,6 @@ import javax.inject.Inject
 class GetDistanceFromCurrentLocation
 @Inject constructor(var locationProvider: LocationProvider) {
 
-    fun get(destinyLocation: Location): Observable<Float> {
-       return locationProvider.getDistance(destinyLocation)
-    }
+    fun get(destinyLocation: Location) = locationProvider.getDistance(destinyLocation)
 
 }

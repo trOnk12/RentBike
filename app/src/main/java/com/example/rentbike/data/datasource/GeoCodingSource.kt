@@ -5,6 +5,6 @@ import io.reactivex.Observable
 
 interface GeoCodingRemoteSource {
 
-    fun get(): Observable<List<Address>>
+    fun get(latitude:Double,longitude:Double): Observable<List<Address>>
 
 }

@@ -10,8 +10,6 @@ class GetBikeStations
     private val bikeStationRepository: BikeStationRepository
 ) {
 
-    fun get(): Observable<List<BikeStation>> {
-        return bikeStationRepository.getBikeStations()
-    }
+    fun get() = bikeStationRepository.getBikeStations()
 
 }

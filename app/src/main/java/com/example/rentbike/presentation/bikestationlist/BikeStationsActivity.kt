@@ -9,6 +9,7 @@ import com.example.rentbike.core.extension.observe
 import com.example.rentbike.core.extension.viewModel
 import com.example.rentbike.core.platform.BaseActivity
 import com.example.rentbike.domain.model.BikeStation
+import com.example.rentbike.domain.model.GeoBikeStation
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -47,7 +48,7 @@ class BikeStationsActivity : BaseActivity() {
         }
     }
 
-    private fun handleSuccess(list: List<BikeStation>?) {
+    private fun handleSuccess(list: List<GeoBikeStation>?) {
         list?.let { bikeStations -> bikeStationsAdapter.bikeStations = bikeStations }
     }
 
