@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class Navigator @Inject constructor() {
 
-    fun openBikeStationsDetails(context: Context, bikeStation: BikeStationItem) {
+    fun openBikeStationsDetails(context: Context, bikeStation: BikeStation) {
         BikeStationDetailActivity.callingIntent(context, bikeStation)
     }
 

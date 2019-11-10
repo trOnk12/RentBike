@@ -5,15 +5,16 @@ import android.content.Intent
 import android.os.Bundle
 import com.example.rentbike.R
 import com.example.rentbike.core.platform.BaseActivity
+import com.example.rentbike.domain.model.BikeStation
 import com.example.rentbike.presentation.model.BikeStationItem
 
 class BikeStationDetailActivity : BaseActivity() {
     companion object {
         private const val INTENT_EXTRA_PARAM_BIKE_STATION = "INTENT_PARAM_BIKE_STATION"
 
-        fun callingIntent(context: Context, bikeStationItem: BikeStationItem) {
+        fun callingIntent(context: Context, bikeStation: BikeStation) {
             val intent = Intent(context, BikeStationDetailActivity::class.java)
-            intent.putExtra(INTENT_EXTRA_PARAM_BIKE_STATION, bikeStationItem)
+            intent.putExtra(INTENT_EXTRA_PARAM_BIKE_STATION, bikeStation)
             return
         }
     }

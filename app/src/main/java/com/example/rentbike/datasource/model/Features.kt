@@ -1,3 +1,6 @@
+package  com.example.rentbike.datasource.model
+
+import com.example.rentbike.datasource.model.BikeStationProperties
 import com.google.gson.annotations.SerializedName
 
 /*
@@ -16,5 +19,5 @@ data class Features (
 	@SerializedName("geometry") val geometry : Geometry,
 	@SerializedName("id") val id : Int,
 	@SerializedName("type") val type : String,
-	@SerializedName("properties") val properties : Properties
+	@SerializedName("properties") val properties : BikeStationProperties
 )

@@ -1,4 +1,4 @@
-package com.example.rentbike.core.di.modules
+package com.example.rentbike.core.di.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

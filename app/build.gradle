@@ -7,6 +7,9 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+    androidExtensions {
+        experimental = true
+    }
     compileSdkVersion DefaultConfig.compiledSdkVersion
     buildToolsVersion DefaultConfig.buildToolsVersion
     defaultConfig {
@@ -49,5 +52,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     implementation ExternalLibaries.rxjava
     implementation ExternalLibaries.rxjavaAndroid
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.6.2"
 
 }

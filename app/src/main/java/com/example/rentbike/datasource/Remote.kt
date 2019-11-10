@@ -1,8 +1,8 @@
 package com.example.rentbike.datasource
 
+import com.example.rentbike.datasource.model.BikeStationEntity
 import io.reactivex.Single
 import retrofit2.http.GET
-import BikeStationEntity
 
 interface BikeStationApi {
 

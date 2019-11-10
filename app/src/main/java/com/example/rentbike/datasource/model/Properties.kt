@@ -1,3 +1,5 @@
+package  com.example.rentbike.datasource.model
+
 import com.google.gson.annotations.SerializedName
 
 /*
