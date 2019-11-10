@@ -7,6 +7,7 @@ import com.example.rentbike.R
 import com.example.rentbike.core.platform.BaseActivity
 import com.example.rentbike.domain.model.BikeStation
 import com.example.rentbike.presentation.model.BikeStationItem
+import java.util.jar.Manifest
 
 class BikeStationDetailActivity : BaseActivity() {
     companion object {
@@ -23,5 +24,6 @@ class BikeStationDetailActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bike_station_detail_activity)
         appComponent.inject(this)
+
     }
 }

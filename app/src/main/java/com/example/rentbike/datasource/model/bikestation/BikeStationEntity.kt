@@ -1,4 +1,4 @@
-package  com.example.rentbike.datasource.model
+package  com.example.rentbike.datasource.model.bikestation
 
 import com.example.rentbike.domain.model.BikeStation
 import com.example.rentbike.presentation.model.Address
@@ -15,8 +15,8 @@ fun BikeStationEntity.mapToDomain(): List<BikeStation> {
         BikeStation(
             it.id,
             it.properties.label,
-            0,
-            Address("Kraków", "Test"),
+            it.geometry.coordinates[0],
+            it.geometry.coordinates[1],
             it.properties.bikes,
             it.properties.freeRacks
         )

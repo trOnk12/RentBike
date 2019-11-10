@@ -1,20 +1,23 @@
 package com.example.rentbike.presentation.bikestationlist
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.rentbike.R
-import com.example.rentbike.core.Navigator
 import com.example.rentbike.core.extension.observe
 import com.example.rentbike.core.extension.viewModel
 import com.example.rentbike.core.platform.BaseActivity
 import com.example.rentbike.domain.model.BikeStation
-import com.example.rentbike.presentation.model.BikeStationItem
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class BikeStationsActivity : BaseActivity() {
+    companion object{
+        fun callingIntent(context: Context): Intent {
+            return Intent(context, BikeStationsActivity::class.java)
+        }
+    }
 
     @Inject
     lateinit var bikeStationsAdapter: BikeStationsAdapter

@@ -1,4 +1,4 @@
-package  com.example.rentbike.datasource.model
+package  com.example.rentbike.datasource.model.bikestation
 
 import com.google.gson.annotations.SerializedName
 
@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class Properties (
-	@SerializedName("code") val code : Int
+data class Geometry (
+	@SerializedName("coordinates") val coordinates : List<Double>,
+	@SerializedName("type") val type : String
 )
