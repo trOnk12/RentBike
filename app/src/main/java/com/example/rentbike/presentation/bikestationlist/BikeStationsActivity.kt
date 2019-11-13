@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class BikeStationsActivity : BaseActivity() {
-    companion object{
+    companion object {
         fun callingIntent(context: Context): Intent {
             return Intent(context, BikeStationsActivity::class.java)
         }

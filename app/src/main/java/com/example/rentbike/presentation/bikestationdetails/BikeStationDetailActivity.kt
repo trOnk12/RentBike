@@ -16,6 +16,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.bike_station_detail_activity.*
 import java.util.jar.Manifest
 
 class BikeStationDetailActivity : BaseActivity(), OnMapReadyCallback {
@@ -29,7 +30,7 @@ class BikeStationDetailActivity : BaseActivity(), OnMapReadyCallback {
         }
     }
 
-    val ZOOM_LEVEL = 13f
+    private val ZOOM_LEVEL = 13f
 
     private lateinit var bikeStationDetailViewModel: BikeStationDetailViewModel
 
@@ -42,7 +43,10 @@ class BikeStationDetailActivity : BaseActivity(), OnMapReadyCallback {
         setContentView(R.layout.bike_station_detail_activity)
         appComponent.inject(this)
 
+        bike_station_view.setBikeStationModel(geoBikeStation)
+
         bikeStationDetailViewModel = viewModel(viewModelFactory)
+
 
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
