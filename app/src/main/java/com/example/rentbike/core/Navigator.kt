@@ -10,7 +10,7 @@ import javax.inject.Inject
 class Navigator @Inject constructor() {
 
     fun openBikeStationsDetails(context: Context, bikeStation: GeoBikeStation) {
-        BikeStationDetailActivity.callingIntent(context, bikeStation)
+        context.startActivity(BikeStationDetailActivity.callingIntent(context, bikeStation))
     }
 
 }

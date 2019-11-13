@@ -14,6 +14,9 @@ inline fun <reified T : ViewModel> AppCompatActivity.viewModel(factory: ViewMode
     return vm
 }
 
+inline fun <reified T : ViewModel> AppCompatActivity.viewModel(factory: ViewModelProvider.Factory): T {
+    return ViewModelProviders.of(this, factory)[T::class.java]
+}
 
 fun AppCompatActivity.isHasPermission(vararg permissions: String): Boolean {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)

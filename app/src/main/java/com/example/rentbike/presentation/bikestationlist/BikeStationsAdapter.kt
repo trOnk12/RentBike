@@ -30,13 +30,20 @@ class BikeStationsAdapter
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(geoBikeStation: GeoBikeStation, bikeStationClickListener: (GeoBikeStation) -> Unit) {
-            itemView.station_number.text = geoBikeStation.number.toString()
-            itemView.station_title.text = geoBikeStation.title
-            itemView.current_location_distance.text = geoBikeStation.distance.toString()
-            itemView.available_bikes.text = geoBikeStation.availableBikes.toString()
-            itemView.available_spaces.text = geoBikeStation.availableStations.toString()
-            itemView.address.text = geoBikeStation.address.street + "," + geoBikeStation.address.city
-            itemView.setOnClickListener { bikeStationClickListener(geoBikeStation) }
+            with(geoBikeStation){
+                itemView.station_number.text = number.toString()
+                itemView.station_title.text = title
+                if(distance > 1000.00){
+                    itemView.current_location_distance.text = (distance / 1000).toString() + "km"
+                }
+                else{
+                    itemView.current_location_distance.text = (distance).toString() + "m"
+                }
+                itemView.available_bikes.text = availableBikes.toString()
+                itemView.available_spaces.text = availableStations.toString()
+                itemView.address.text = address.street + "," + geoBikeStation.address.city
+                itemView.setOnClickListener { bikeStationClickListener(this) }
+            }
         }
     }
 

@@ -5,16 +5,17 @@ import androidx.annotation.RequiresPermission
 import com.example.rentbike.domain.LocationProvider
 import com.example.rentbike.domain.model.Location
 import com.google.android.gms.location.FusedLocationProviderClient
+import io.reactivex.Observable
 import io.reactivex.Single
 
 class LocationProviderImpl(private val fusedLocationProvider: FusedLocationProviderClient) : LocationProvider {
 
     @RequiresPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-    override fun getLocation(): Single<Location> {
-        return Single.create { emitter ->
+    override fun getLocation(): Observable<Location> {
+        return Observable.create { emitter ->
             fusedLocationProvider.lastLocation.addOnSuccessListener {
                 if (it != null) {
-                    emitter.onSuccess(Location(it.latitude, it.longitude))
+                    emitter.onNext(Location(it.latitude, it.longitude))
                 } else {
                     emitter.onError(Exception())
                 }
@@ -23,7 +24,7 @@ class LocationProviderImpl(private val fusedLocationProvider: FusedLocationProvi
     }
 
     @RequiresPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-    override fun getDistance(destinyLocation: Location): Single<Float> {
+    override fun getDistance(destinyLocation: Location): Observable<Float> {
         return getLocation().map {
             calculateDistance(it, destinyLocation)
         }

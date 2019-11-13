@@ -9,8 +9,8 @@ import io.reactivex.Single
 
 class GeoCodingRepositoryImpl(private val geoCodingRemoteSource: GeoCodingRemoteSource) : GeoCodingRepository {
 
-    override fun getAddress(latitude: Double, longitude: Double): Observable<Address> {
-        return geoCodingRemoteSource.get()
+    override fun getAddress(latitude: Double, longitude: Double): Observable<List<Address>> {
+        return geoCodingRemoteSource.get(latitude, longitude)
     }
 
 }

@@ -15,9 +15,9 @@ fun BikeStationEntity.mapToDomain(): List<BikeStation> {
         BikeStation(
             it.id,
             it.properties.label,
-            it.geometry.coordinates[0],
             it.geometry.coordinates[1],
-            it.properties.bikes,
+            it.geometry.coordinates[0],
+            it.properties.bikeRacks,
             it.properties.freeRacks
         )
     }

@@ -7,8 +7,10 @@ import com.example.rentbike.domain.model.parseToGeoBikeStation
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.functions.BiFunction
+import javax.inject.Inject
 
-class GetGeoBikeStations(
+class GetGeoBikeStations
+@Inject constructor(
     private val getBikeStations: GetBikeStations,
     private val getAddressFromLatLng: GetAddressFromLatLng,
     private val getDistanceFromCurrentLocation: GetDistanceFromCurrentLocation
@@ -22,8 +24,8 @@ class GetGeoBikeStations(
                         Observable.zip(
                             getAddressFromLatLng.get(item.latitude, item.longitude),
                             getDistanceFromCurrentLocation.get(Location(item.latitude, item.longitude)),
-                            BiFunction<Address, Float, GeoBikeStation> { address, distance ->
-                                item.parseToGeoBikeStation(address, distance)
+                            BiFunction<List<Address>, Float, GeoBikeStation> { address, distance ->
+                                item.parseToGeoBikeStation(address[0], distance)
                             }
                         )
                     }

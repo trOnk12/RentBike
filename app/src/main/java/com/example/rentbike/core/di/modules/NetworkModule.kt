@@ -8,6 +8,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -15,9 +16,23 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(httpClient: OkHttpClient): Retrofit {
+    @Named("bikestation")
+    fun provideBikeStationClient(httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl("http://www.poznan.pl/")
+            .client(httpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
+    }
+
+
+    @Singleton
+    @Provides
+    @Named("google")
+    fun provideGoogleClient(httpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl("https://maps.googleapis.com/")
             .client(httpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

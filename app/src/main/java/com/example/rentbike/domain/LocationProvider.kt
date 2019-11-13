@@ -5,6 +5,6 @@ import io.reactivex.Observable
 import io.reactivex.Single
 
 interface LocationProvider {
-    fun getLocation(): Single<Location>
+    fun getLocation(): Observable<Location>
     fun getDistance(destinyLocation: Location): Observable<Float>
 }

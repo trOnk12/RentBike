@@ -6,6 +6,6 @@ import io.reactivex.Single
 
 interface GeoCodingRepository {
 
-    fun getAddress(latitude: Double, longitude: Double): Observable<Address>
+    fun getAddress(latitude: Double, longitude: Double): Observable<List<Address>>
 
 }

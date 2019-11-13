@@ -12,7 +12,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : AppCompatActivity(), PermissionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,23 +20,19 @@ class SplashActivity : AppCompatActivity() {
 
         Dexter.withActivity(this)
             .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-            .withListener(object : PermissionListener {
-                override fun onPermissionGranted(response: PermissionGrantedResponse?) {
-                    startActivity(BikeStationsActivity.callingIntent(this@SplashActivity))
-                    finish()
-                }
-
-                override fun onPermissionRationaleShouldBeShown(
-                    permission: PermissionRequest?,
-                    token: PermissionToken?
-                ) {
-
-                }
-
-                override fun onPermissionDenied(response: PermissionDeniedResponse?) {
-                    finish()
-                }
-            })
+            .withListener(this)
             .check()
     }
+
+    override fun onPermissionGranted(response: PermissionGrantedResponse?) {
+        startActivity(BikeStationsActivity.callingIntent(this@SplashActivity))
+        finish()
+    }
+
+    override fun onPermissionRationaleShouldBeShown(permission: PermissionRequest?, token: PermissionToken?) {}
+
+    override fun onPermissionDenied(response: PermissionDeniedResponse?) {
+        finish()
+    }
+
 }

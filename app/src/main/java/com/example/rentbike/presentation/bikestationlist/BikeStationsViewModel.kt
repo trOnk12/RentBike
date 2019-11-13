@@ -1,6 +1,7 @@
 package com.example.rentbike.presentation.bikestationlist
 
 import android.location.LocationProvider
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.rentbike.core.platform.BaseViewModel
@@ -14,7 +15,7 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class BikeStationsViewModel
-@Inject constructor(var geoBikeStations: GetGeoBikeStations) : BaseViewModel() {
+@Inject constructor(private var geoBikeStations: GetGeoBikeStations) : BaseViewModel() {
 
     var bikeStations: MutableLiveData<List<GeoBikeStation>> = MutableLiveData()
 
@@ -23,7 +24,7 @@ class BikeStationsViewModel
             geoBikeStations.get()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ bikeStations.value = it }, {})
+                .subscribe({ bikeStations.value = it }, { Log.d("TEST", it.message) })
         )
     }
 

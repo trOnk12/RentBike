@@ -16,4 +16,4 @@ data class GeoBikeStation(
 ) : Parcelable
 
 @Parcelize
-data class Address(val city: String, val street: String) : Parcelable
+data class Address(val city: String, val street: String, val streetNumber: String) : Parcelable
