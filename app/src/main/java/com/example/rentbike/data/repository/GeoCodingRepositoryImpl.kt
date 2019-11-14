@@ -7,10 +7,11 @@ import com.example.rentbike.domain.repository.GeoCodingRepository
 import io.reactivex.Observable
 import io.reactivex.Single
 
-class GeoCodingRepositoryImpl(private val geoCodingRemoteSource: GeoCodingRemoteSource) : GeoCodingRepository {
+class GeoCodingRepositoryImpl constructor(
+    private val geoCodingRemoteSource: GeoCodingRemoteSource)
+    : GeoCodingRepository {
 
-    override fun getAddress(latitude: Double, longitude: Double): Observable<List<Address>> {
-        return geoCodingRemoteSource.get(latitude, longitude)
-    }
+    override fun getAddress(latitude: Double, longitude: Double): Observable<List<Address>> =
+         geoCodingRemoteSource.get(latitude, longitude)
 
 }

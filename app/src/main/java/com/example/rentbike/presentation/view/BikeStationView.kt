@@ -1,4 +1,4 @@
-package com.example.rentbike.presentation
+package com.example.rentbike.presentation.view
 
 import android.content.Context
 import android.util.AttributeSet

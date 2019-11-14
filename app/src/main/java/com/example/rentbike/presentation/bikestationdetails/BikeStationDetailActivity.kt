@@ -4,12 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.example.rentbike.R
-import com.example.rentbike.core.extension.observe
 import com.example.rentbike.core.extension.viewModel
 import com.example.rentbike.core.platform.BaseActivity
-import com.example.rentbike.domain.model.BikeStation
 import com.example.rentbike.domain.model.GeoBikeStation
-import com.example.rentbike.presentation.model.BikeStationItem
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -17,7 +14,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.bike_station_detail_activity.*
-import java.util.jar.Manifest
 
 class BikeStationDetailActivity : BaseActivity(), OnMapReadyCallback {
     companion object {

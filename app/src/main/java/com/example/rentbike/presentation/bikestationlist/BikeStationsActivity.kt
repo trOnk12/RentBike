@@ -3,10 +3,14 @@ package com.example.rentbike.presentation.bikestationlist
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rentbike.R
 import com.example.rentbike.core.extension.observe
 import com.example.rentbike.core.extension.viewModel
+import com.example.rentbike.core.functional.Resource
+import com.example.rentbike.core.functional.ResourceState
 import com.example.rentbike.core.platform.BaseActivity
 import com.example.rentbike.domain.model.BikeStation
 import com.example.rentbike.domain.model.GeoBikeStation
@@ -32,7 +36,7 @@ class BikeStationsActivity : BaseActivity() {
         initializeView()
 
         bikeStationsViewModel = viewModel(viewModelFactory) {
-            observe(bikeStations, ::handleSuccess)
+            observe(bikeStations, ::updateBikeStations)
         }
 
         bikeStationsViewModel.fetchBikeStations()
@@ -48,8 +52,26 @@ class BikeStationsActivity : BaseActivity() {
         }
     }
 
-    private fun handleSuccess(list: List<GeoBikeStation>?) {
-        list?.let { bikeStations -> bikeStationsAdapter.bikeStations = bikeStations }
+    private fun updateBikeStations(resource: Resource<List<GeoBikeStation>>?) {
+        resource?.let {
+            when (it.state) {
+                ResourceState.LOADING -> startRefreshing()
+                ResourceState.SUCCESS -> stopRefreshing()
+                ResourceState.ERROR -> stopRefreshing()
+            }
+            it.data?.let { bikeStationsAdapter.bikeStations = it }
+            it.message?.let { Log.d("TEST",it) }
+        }
+    }
+
+    private fun stopRefreshing() {
+        bike_stations_list.visibility = View.VISIBLE
+        progress_bar.visibility = View.GONE
+    }
+
+    private fun startRefreshing() {
+        bike_stations_list.visibility = View.GONE
+        progress_bar.visibility = View.VISIBLE
     }
 
 }

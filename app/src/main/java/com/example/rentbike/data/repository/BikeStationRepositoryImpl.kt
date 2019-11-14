@@ -6,10 +6,11 @@ import com.example.rentbike.domain.repository.BikeStationRepository
 import io.reactivex.Observable
 import io.reactivex.Single
 
-class BikeStationRepositoryImpl(private val bikeStationRemoteSource: BikeStationRemoteSource) : BikeStationRepository {
+class BikeStationRepositoryImpl constructor(
+    private val bikeStationRemoteSource: BikeStationRemoteSource)
+    : BikeStationRepository {
 
-    override fun getBikeStations(): Observable<List<BikeStation>> {
-        return bikeStationRemoteSource.get()
-    }
+    override fun getBikeStations(): Observable<List<BikeStation>> =
+         bikeStationRemoteSource.get()
 
 }

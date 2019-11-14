@@ -14,7 +14,7 @@
             tools:context=".presentation.bikestationdetails.MapsActivity"
             android:name="com.google.android.gms.maps.SupportMapFragment"/>
 
-    <com.example.rentbike.presentation.BikeStationView
+    <com.example.rentbike.presentation.view.BikeStationView
             android:layout_weight="3"
             android:id="@+id/bike_station_view"
             android:layout_width="match_parent"

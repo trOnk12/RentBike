@@ -29,8 +29,7 @@ class GetGeoBikeStations
                             }
                         )
                     }
-            }
-            .toList()
+            }.toList()
     }
 
 }

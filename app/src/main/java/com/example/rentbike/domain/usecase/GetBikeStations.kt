@@ -10,6 +10,7 @@ class GetBikeStations
     private val bikeStationRepository: BikeStationRepository
 ) {
 
-    fun get() = bikeStationRepository.getBikeStations()
+    fun get() =
+        bikeStationRepository.getBikeStations()
 
 }

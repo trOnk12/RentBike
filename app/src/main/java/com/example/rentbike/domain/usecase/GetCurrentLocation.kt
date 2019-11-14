@@ -8,8 +8,7 @@ import javax.inject.Inject
 class GetCurrentLocation
 @Inject constructor(private val locationProvider: LocationProvider) {
 
-    fun get(): Observable<Location> {
-        return locationProvider.getLocation()
-    }
+    fun get(): Observable<Location> =
+        locationProvider.getLocation()
 
 }

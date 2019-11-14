@@ -1,7 +1,6 @@
 package  com.example.rentbike.datasource.model.bikestation
 
 import com.example.rentbike.domain.model.BikeStation
-import com.example.rentbike.presentation.model.Address
 import com.google.gson.annotations.SerializedName
 
 data class BikeStationEntity(
