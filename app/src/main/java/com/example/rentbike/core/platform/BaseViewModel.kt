@@ -7,4 +7,9 @@ open class BaseViewModel : ViewModel() {
 
     val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
+    override fun onCleared() {
+        compositeDisposable.dispose()
+        super.onCleared()
+    }
+
 }

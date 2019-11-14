@@ -23,7 +23,6 @@ class BikeStationsViewModel
             geoBikeStations.get()
                 .doOnSubscribe { bikeStations.setLoading() }
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ bikeStations.setSuccess(it) }, { bikeStations.setError(it.message) })
         )
     }
