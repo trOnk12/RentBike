@@ -30,6 +30,14 @@ object Versions {
 
     const val rxjava = "2.2.14"
     const val rxjavaAndroid = "2.1.1"
+    const val retrofitRxAdapter = "2.6.2"
+
+    const val googleServicesLocation = "15.0.1"
+
+    const val lifeCycle = "2.1.0"
+    const val lifeCycleViewModel = "2.1.0"
+
+    const val dexter = "6.0.0"
 }
 
 object StandardLibraries {
@@ -56,8 +64,16 @@ object ExternalLibaries {
 
     const val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxjava}"
     const val rxjavaAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxjavaAndroid}"
+
+    const val retrofitRxAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofitRxAdapter}"
+
+    const val lifeCycle = "androidx.lifecycle:lifecycle-extensions:${Versions.lifeCycle}"
+    const val lifeCycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycleViewModel}"
+
+    const val dexter = "com.karumi:dexter:6.0.0:${Versions.dexter}"
 }
 
 object GoogleLibaries {
-
+    const val googleServicesLocation =
+        "com.google.android.gms:play-services-location:${Versions.googleServicesLocation}"
 }

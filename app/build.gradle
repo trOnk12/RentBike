@@ -54,14 +54,14 @@ dependencies {
     implementation ExternalLibaries.gson
     implementation ExternalLibaries.gsonConverter
     implementation ExternalLibaries.httpLoggingInterceptor
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation ExternalLibaries.lifeCycle
     implementation ExternalLibaries.rxjava
     implementation ExternalLibaries.rxjavaAndroid
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.6.2"
-    implementation 'com.karumi:dexter:6.0.0'
-    implementation "com.google.android.gms:play-services-location:15.0.1"
+    implementation ExternalLibaries.retrofitRxAdapter
+    implementation ExternalLibaries.dexter
+    implementation GoogleLibaries.googleServicesLocation
+    compile ExternalLibaries.lifeCycleViewModel
     compile "androidx.core:core-ktx:+"
-    compile "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 }
