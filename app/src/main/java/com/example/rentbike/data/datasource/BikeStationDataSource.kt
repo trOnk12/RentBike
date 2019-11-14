@@ -6,6 +6,6 @@ import io.reactivex.Single
 
 interface BikeStationRemoteSource {
 
-    fun get(): Observable<List<BikeStation>>
+    fun get(): Single<List<BikeStation>>
 
 }

@@ -9,3 +9,6 @@ import androidx.core.view.isVisible
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int): View =
     LayoutInflater.from(context).inflate(layoutRes, this, false)
 
+fun View.visible() { this.visibility = View.VISIBLE }
+
+fun View.invisible() { this.visibility = View.GONE }

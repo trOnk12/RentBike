@@ -18,6 +18,7 @@ class GetGeoBikeStations
 
     fun get(): Single<MutableList<GeoBikeStation>> {
         return getBikeStations.get()
+            .toObservable()
             .flatMap { list ->
                 Observable.fromIterable(list)
                     .flatMap { item ->

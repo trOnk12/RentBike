@@ -8,7 +8,7 @@ import io.reactivex.Single
 
 class BikeStationRemoteSourceImpl(private val bikeStationApi: BikeStationApi) : BikeStationRemoteSource {
 
-    override fun get(): Observable<List<BikeStation>> {
+    override fun get(): Single<List<BikeStation>> {
         return bikeStationApi.getBikeStations()
             .map { it.mapToDomain() }
     }

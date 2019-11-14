@@ -24,9 +24,7 @@ data class GeocodeEntity(
 fun GeocodeEntity.mapToDomain(): List<Address> {
     return results.map {
         Address(
-            it.formatted_address,
-            "TEST",
-            "TEST"
+            it.formatted_address
         )
     }
 }

@@ -7,8 +7,10 @@ import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rentbike.R
+import com.example.rentbike.core.extension.invisible
 import com.example.rentbike.core.extension.observe
 import com.example.rentbike.core.extension.viewModel
+import com.example.rentbike.core.extension.visible
 import com.example.rentbike.core.functional.Resource
 import com.example.rentbike.core.functional.ResourceState
 import com.example.rentbike.core.platform.BaseActivity
@@ -35,9 +37,8 @@ class BikeStationsActivity : BaseActivity() {
         appComponent.inject(this)
         initializeView()
 
-        bikeStationsViewModel = viewModel(viewModelFactory) {
-            observe(bikeStations, ::updateBikeStations)
-        }
+        bikeStationsViewModel = viewModel(viewModelFactory)
+        { observe(bikeStations, ::updateBikeStations) }
 
         bikeStationsViewModel.fetchBikeStations()
     }
@@ -55,23 +56,23 @@ class BikeStationsActivity : BaseActivity() {
     private fun updateBikeStations(resource: Resource<List<GeoBikeStation>>?) {
         resource?.let {
             when (it.state) {
-                ResourceState.LOADING -> startRefreshing()
-                ResourceState.SUCCESS -> stopRefreshing()
-                ResourceState.ERROR -> stopRefreshing()
+                ResourceState.LOADING -> isLoading(true)
+                ResourceState.SUCCESS, ResourceState.ERROR -> isLoading(false)
             }
-            it.data?.let { bikeStationsAdapter.bikeStations = it }
-            it.message?.let { Log.d("TEST",it) }
+            it.data?.let { data -> bikeStationsAdapter.bikeStations = data }
+            it.message?.let { message -> showToast(message) }
         }
     }
 
-    private fun stopRefreshing() {
-        bike_stations_list.visibility = View.VISIBLE
-        progress_bar.visibility = View.GONE
+    private fun isLoading(isLoading: Boolean) {
+        if (isLoading) {
+            bike_stations_list.invisible()
+            progress_bar.visible()
+        } else {
+            bike_stations_list.visible()
+            progress_bar.invisible()
+        }
     }
 
-    private fun startRefreshing() {
-        bike_stations_list.visibility = View.GONE
-        progress_bar.visibility = View.VISIBLE
-    }
 
 }

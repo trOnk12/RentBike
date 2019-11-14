@@ -10,7 +10,7 @@ class BikeStationRepositoryImpl constructor(
     private val bikeStationRemoteSource: BikeStationRemoteSource)
     : BikeStationRepository {
 
-    override fun getBikeStations(): Observable<List<BikeStation>> =
+    override fun getBikeStations(): Single<List<BikeStation>> =
          bikeStationRemoteSource.get()
 
 }

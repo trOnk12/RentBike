@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface BikeStationApi {
 
     @GET("mim/plan/map_service.html?mtype=pub_transport&co=stacje_rowerowe")
-    fun getBikeStations(): Observable<BikeStationEntity>
+    fun getBikeStations(): Single<BikeStationEntity>
 
 }
 

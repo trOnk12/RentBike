@@ -33,11 +33,17 @@ object Versions {
     const val retrofitRxAdapter = "2.6.2"
 
     const val googleServicesLocation = "15.0.1"
+    const val googlePlayServicesMaps = "17.0.0"
 
     const val lifeCycle = "2.1.0"
     const val lifeCycleViewModel = "2.1.0"
 
     const val dexter = "6.0.0"
+
+    val junit = "4.12"
+    val assertjCore = "3.12.2"
+    val mockitoKotlin = "2.1.0"
+    val mockitoInline = "3.0.0"
 }
 
 object StandardLibraries {
@@ -70,10 +76,19 @@ object ExternalLibaries {
     const val lifeCycle = "androidx.lifecycle:lifecycle-extensions:${Versions.lifeCycle}"
     const val lifeCycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycleViewModel}"
 
-    const val dexter = "com.karumi:dexter:6.0.0:${Versions.dexter}"
+    const val dexter = "com.karumi:dexter:${Versions.dexter}"
 }
 
 object GoogleLibaries {
+    const val googlePlayServicesMaps = "com.google.android.gms:play-services-maps:${Versions.googlePlayServicesMaps}"
     const val googleServicesLocation =
         "com.google.android.gms:play-services-location:${Versions.googleServicesLocation}"
+}
+
+object TestLibraries {
+    val junit = "junit:junit:${Versions.junit}"
+    val assertjCore = "org.assertj:assertj-core:${Versions.assertjCore}"
+    val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
+    val mockitoInline = "org.mockito:mockito-inline:${Versions.mockitoInline}"
+    val lifecycleTesting = "androidx.arch.core:core-testing:${Versions.lifeCycle}"
 }

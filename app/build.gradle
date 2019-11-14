@@ -34,8 +34,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation GoogleLibaries.googlePlayServicesMaps
+    implementation StandardLibraries.appCompat
     kapt ExternalLibaries.daggerCompiler
 
     testImplementation TestLibaries.jUnit
@@ -63,6 +63,12 @@ dependencies {
     compile ExternalLibaries.lifeCycleViewModel
     compile "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    testImplementation TestLibraries.junit
+    testImplementation TestLibraries.assertjCore
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.mockitoInline
+    testImplementation TestLibraries.lifecycleTesting
 
 }
 repositories {

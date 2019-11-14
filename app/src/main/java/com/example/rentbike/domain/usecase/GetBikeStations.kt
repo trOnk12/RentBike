@@ -1,8 +1,6 @@
 package com.example.rentbike.domain.usecase
 
-import com.example.rentbike.domain.model.BikeStation
 import com.example.rentbike.domain.repository.BikeStationRepository
-import io.reactivex.Observable
 import javax.inject.Inject
 
 class GetBikeStations

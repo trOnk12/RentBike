@@ -35,9 +35,9 @@ class BikeStationDetailActivity : BaseActivity(), OnMapReadyCallback {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bike_station_detail_activity)
-        appComponent.inject(this)
 
         bike_station_view.setBikeStationModel(geoBikeStation)
 

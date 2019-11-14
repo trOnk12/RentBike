@@ -5,6 +5,7 @@ import com.example.rentbike.data.datasource.GeoCodingRemoteSource
 import com.example.rentbike.datasource.model.google.geocode.mapToDomain
 import com.example.rentbike.domain.model.Address
 import io.reactivex.Observable
+import io.reactivex.Single
 
 class GeoCodingRemoteSourceImpl(private val geoCodingApi: GeoCodingApi) : GeoCodingRemoteSource {
 

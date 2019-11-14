@@ -1,7 +1,11 @@
 package com.example.rentbike.presentation
 
+import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.example.rentbike.core.functional.ResourceState
 import kotlin.math.roundToLong
 
 @BindingAdapter("distance")
