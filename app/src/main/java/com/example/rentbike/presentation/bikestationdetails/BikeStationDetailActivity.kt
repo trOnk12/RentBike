@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.example.rentbike.R
-import com.example.rentbike.core.extension.viewModel
 import com.example.rentbike.core.platform.BaseActivity
 import com.example.rentbike.domain.model.GeoBikeStation
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -39,9 +38,11 @@ class BikeStationDetailActivity : BaseActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bike_station_detail_activity)
 
-        bike_station_view.setBikeStationModel(geoBikeStation)
+        initializeView()
+    }
 
-        bikeStationDetailViewModel = viewModel(viewModelFactory)
+    private fun initializeView() {
+        bike_station_view.setBikeStationModel(geoBikeStation)
 
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment

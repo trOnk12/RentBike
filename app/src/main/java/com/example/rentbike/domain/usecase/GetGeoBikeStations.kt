@@ -16,7 +16,7 @@ class GetGeoBikeStations
     private val getDistanceFromCurrentLocation: GetDistanceFromCurrentLocation
 ) {
 
-    fun get(): Single<MutableList<GeoBikeStation>> {
+    fun get(): Single<List<GeoBikeStation>> {
         return getBikeStations.get()
             .toObservable()
             .flatMap { list ->
