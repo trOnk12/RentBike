@@ -60,9 +60,7 @@ dependencies {
     implementation ExternalLibaries.retrofitRxAdapter
     implementation ExternalLibaries.dexter
     implementation GoogleLibaries.googleServicesLocation
-    compile ExternalLibaries.lifeCycleViewModel
-    compile "androidx.core:core-ktx:+"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation ExternalLibaries.lifeCycleViewModel
 
     testImplementation TestLibraries.junit
     testImplementation TestLibraries.assertjCore
