@@ -27,7 +27,7 @@ class BikeStationDetailActivity : BaseActivity(), OnMapReadyCallback {
         }
     }
 
-    private val geoBikeStation: GeoBikeStation by lazy {
+    private val geoBikeStation by lazy {
         intent.getParcelableExtra(INTENT_EXTRA_PARAM_BIKE_STATION) as GeoBikeStation
     }
 
@@ -36,11 +36,11 @@ class BikeStationDetailActivity : BaseActivity(), OnMapReadyCallback {
         appComponent.inject(this)
         setContentView(R.layout.bike_station_detail_activity)
 
-        bikeStationView.setBikeStationModel(geoBikeStation)
-
-         val mapFragment =
+        val mapFragment =
             supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        bikeStationView.setBikeStationModel(geoBikeStation)
         mapFragment.getMapAsync(this)
     }
 
@@ -53,6 +53,11 @@ class BikeStationDetailActivity : BaseActivity(), OnMapReadyCallback {
 
             moveToMarker(geoBikeStation.latitude, geoBikeStation.longitude)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
 }

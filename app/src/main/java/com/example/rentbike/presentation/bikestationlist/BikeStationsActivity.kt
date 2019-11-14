@@ -8,6 +8,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rentbike.R
 import com.example.rentbike.core.extension.invisible
+import com.example.rentbike.core.extension.startRefreshing
+import com.example.rentbike.core.extension.stopRefreshing
 import com.example.rentbike.core.extension.visible
 import com.example.rentbike.core.functional.Resource
 import com.example.rentbike.core.functional.ResourceState
@@ -32,13 +34,15 @@ class BikeStationsActivity : BaseActivity() {
         appComponent.inject(this)
         initializeView()
 
-        val vm = ViewModelProviders.of(this, viewModelFactory)[BikeStationsViewModel::class.java]
-        vm.bikeStations.observe(this, Observer(::updateBikeStations))
+        val vm =
+            ViewModelProviders.of(this, viewModelFactory)[BikeStationsViewModel::class.java]
 
         if (savedInstanceState == null) {
             vm.fetchBikeStations()
         }
 
+        vm.bikeStations.observe(this, Observer(::updateBikeStations))
+        swipeRefreshLayout.setOnRefreshListener { vm.fetchBikeStations() }
     }
 
     private fun initializeView() {
@@ -51,23 +55,12 @@ class BikeStationsActivity : BaseActivity() {
     private fun updateBikeStations(resource: Resource<List<GeoBikeStation>>?) {
         resource?.let {
             when (it.state) {
-                ResourceState.LOADING -> isLoading(true)
-                ResourceState.SUCCESS, ResourceState.ERROR -> isLoading(false)
+                ResourceState.LOADING -> swipeRefreshLayout.startRefreshing()
+                ResourceState.SUCCESS, ResourceState.ERROR -> swipeRefreshLayout.stopRefreshing()
             }
             it.data?.let { data -> bikeStationsAdapter.bikeStations = data }
             it.message?.let { message -> showToast(message) }
         }
     }
-
-    private fun isLoading(isLoading: Boolean) {
-        if (isLoading) {
-            bikeStationsList.invisible()
-            progressBar.visible()
-        } else {
-            bikeStationsList.visible()
-            progressBar.invisible()
-        }
-    }
-
 
 }
