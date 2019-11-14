@@ -34,13 +34,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation GoogleLibaries.googlePlayServicesMaps
-    implementation StandardLibraries.appCompat
-    kapt ExternalLibaries.daggerCompiler
-
-    testImplementation TestLibaries.jUnit
     androidTestImplementation TestLibaries.testRunner
     androidTestImplementation TestLibaries.espressoCore
+    testImplementation TestLibraries.junit
+    testImplementation TestLibraries.assertjCore
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.mockitoInline
+    testImplementation TestLibraries.lifecycleTesting
 
     implementation StandardLibraries.kotlinStd
     implementation StandardLibraries.appCompat
@@ -49,7 +49,7 @@ dependencies {
     implementation StandardLibraries.recyclerView
 
     implementation ExternalLibaries.dagger
-
+    kapt ExternalLibaries.daggerCompiler
     implementation ExternalLibaries.retrofit
     implementation ExternalLibaries.gson
     implementation ExternalLibaries.gsonConverter
@@ -59,14 +59,10 @@ dependencies {
     implementation ExternalLibaries.rxjavaAndroid
     implementation ExternalLibaries.retrofitRxAdapter
     implementation ExternalLibaries.dexter
-    implementation GoogleLibaries.googleServicesLocation
     implementation ExternalLibaries.lifeCycleViewModel
 
-    testImplementation TestLibraries.junit
-    testImplementation TestLibraries.assertjCore
-    testImplementation TestLibraries.mockitoKotlin
-    testImplementation TestLibraries.mockitoInline
-    testImplementation TestLibraries.lifecycleTesting
+    implementation GoogleLibaries.googleServicesLocation
+    implementation GoogleLibaries.googlePlayServicesMaps
 
 }
 repositories {

@@ -4,6 +4,4 @@
     <string name="available_places">Available places</string>
     <string name="title_activity_maps">Map</string>
     <string name="available_stations">Available stations</string>
-    <string name="meter_unit">m</string>
-    <string name="app_name">RentBike</string>
 </resources>
