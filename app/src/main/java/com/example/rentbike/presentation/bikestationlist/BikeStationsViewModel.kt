@@ -5,11 +5,9 @@ import com.example.rentbike.core.extension.setError
 import com.example.rentbike.core.extension.setLoading
 import com.example.rentbike.core.extension.setSuccess
 import com.example.rentbike.core.functional.Resource
-import com.example.rentbike.core.functional.ResourceState
 import com.example.rentbike.core.platform.BaseViewModel
 import com.example.rentbike.domain.model.GeoBikeStation
 import com.example.rentbike.domain.usecase.GetGeoBikeStations
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 

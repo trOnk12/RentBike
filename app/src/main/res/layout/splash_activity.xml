@@ -7,7 +7,7 @@
               android:layout_height="match_parent">
 
     <TextView
-            android:text="RentBike"
+            android:text="@string/app_name"
             android:textColor="#FFF"
             android:textStyle="bold"
             android:textSize="48sp"

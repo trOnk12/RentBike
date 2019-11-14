@@ -13,7 +13,6 @@ import com.example.rentbike.datasource.GeoCodingRemoteSourceImpl
 import com.example.rentbike.domain.LocationProvider
 import com.example.rentbike.domain.repository.BikeStationRepository
 import com.example.rentbike.domain.repository.GeoCodingRepository
-import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import dagger.Module
 import dagger.Provides

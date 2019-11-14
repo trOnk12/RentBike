@@ -3,7 +3,6 @@ package com.example.rentbike.data.repository
 import com.example.rentbike.data.datasource.BikeStationRemoteSource
 import com.example.rentbike.domain.model.BikeStation
 import com.example.rentbike.domain.repository.BikeStationRepository
-import io.reactivex.Observable
 import io.reactivex.Single
 
 class BikeStationRepositoryImpl constructor(

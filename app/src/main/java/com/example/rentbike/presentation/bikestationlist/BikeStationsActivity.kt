@@ -5,12 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rentbike.R
-import com.example.rentbike.core.extension.invisible
 import com.example.rentbike.core.extension.startRefreshing
 import com.example.rentbike.core.extension.stopRefreshing
-import com.example.rentbike.core.extension.visible
 import com.example.rentbike.core.functional.Resource
 import com.example.rentbike.core.functional.ResourceState
 import com.example.rentbike.core.platform.BaseActivity
@@ -49,7 +46,7 @@ class BikeStationsActivity : BaseActivity() {
         bikeStationsAdapter.bikeStationClickListener =
             { bikeStationItem -> navigator.openBikeStationsDetails(this, bikeStationItem) }
 
-            bikeStationsList.adapter = bikeStationsAdapter
+        bikeStationsList.adapter = bikeStationsAdapter
     }
 
     private fun updateBikeStations(resource: Resource<List<GeoBikeStation>>?) {

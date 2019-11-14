@@ -1,6 +1,8 @@
 package com.example.rentbike.core.di.modules
 
 import com.example.rentbike.BuildConfig
+import com.example.rentbike.core.BIKE_STATION_BASE_URL
+import com.example.rentbike.core.GOOGLE_MAPS_BASE_URL
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -19,7 +21,7 @@ class NetworkModule {
     @Named("bikestation")
     fun provideBikeStationClient(httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://www.poznan.pl/")
+            .baseUrl(BIKE_STATION_BASE_URL)
             .client(httpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -32,7 +34,7 @@ class NetworkModule {
     @Named("google")
     fun provideGoogleClient(httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://maps.googleapis.com/")
+            .baseUrl(GOOGLE_MAPS_BASE_URL)
             .client(httpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

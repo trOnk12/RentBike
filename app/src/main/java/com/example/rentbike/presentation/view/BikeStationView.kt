@@ -4,8 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
-import com.example.rentbike.BR
-import com.example.rentbike.R
 import com.example.rentbike.databinding.BikeStationInfoBinding
 import com.example.rentbike.domain.model.GeoBikeStation
 

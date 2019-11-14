@@ -6,7 +6,6 @@ import com.example.rentbike.domain.LocationProvider
 import com.example.rentbike.domain.model.Location
 import com.google.android.gms.location.FusedLocationProviderClient
 import io.reactivex.Observable
-import io.reactivex.Single
 
 class LocationProviderImpl(private val fusedLocationProvider: FusedLocationProviderClient) : LocationProvider {
 
