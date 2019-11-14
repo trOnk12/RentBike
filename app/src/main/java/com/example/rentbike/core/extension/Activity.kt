@@ -1,5 +1,6 @@
 package com.example.rentbike.core.extension
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -8,16 +9,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
-inline fun <reified T : ViewModel> AppCompatActivity.viewModel(factory: ViewModelProvider.Factory, body: T.() -> Unit): T {
-    val vm = ViewModelProviders.of(this, factory)[T::class.java]
-    vm.body()
-    return vm
-}
-
-inline fun <reified T : ViewModel> AppCompatActivity.viewModel(factory: ViewModelProvider.Factory): T {
-    return ViewModelProviders.of(this, factory)[T::class.java]
-}
-
 fun AppCompatActivity.isHasPermission(vararg permissions: String): Boolean {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         permissions.all { singlePermission ->
@@ -25,5 +16,8 @@ fun AppCompatActivity.isHasPermission(vararg permissions: String): Boolean {
         }
     else true
 }
-fun AppCompatActivity.askPermission(vararg permissions: String, requestCode: Int) =
-    ActivityCompat.requestPermissions(this, permissions, requestCode)
+
+fun AppCompatActivity.startActivityWithFinish(intent: Intent){
+    startActivity(intent)
+    finish()
+}

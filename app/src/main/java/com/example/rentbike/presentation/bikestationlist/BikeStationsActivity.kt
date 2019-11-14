@@ -3,20 +3,17 @@ package com.example.rentbike.presentation.bikestationlist
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rentbike.R
 import com.example.rentbike.core.extension.invisible
-import com.example.rentbike.core.extension.observe
-import com.example.rentbike.core.extension.viewModel
 import com.example.rentbike.core.extension.visible
 import com.example.rentbike.core.functional.Resource
 import com.example.rentbike.core.functional.ResourceState
 import com.example.rentbike.core.platform.BaseActivity
-import com.example.rentbike.domain.model.BikeStation
 import com.example.rentbike.domain.model.GeoBikeStation
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.bike_stations_list_activity.*
 import javax.inject.Inject
 
 class BikeStationsActivity : BaseActivity() {
@@ -29,28 +26,26 @@ class BikeStationsActivity : BaseActivity() {
     @Inject
     lateinit var bikeStationsAdapter: BikeStationsAdapter
 
-    private lateinit var bikeStationsViewModel: BikeStationsViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.bike_stations_list_activity)
         appComponent.inject(this)
         initializeView()
 
-        bikeStationsViewModel = viewModel(viewModelFactory)
-        { observe(bikeStations, ::updateBikeStations) }
+        val vm = ViewModelProviders.of(this, viewModelFactory)[BikeStationsViewModel::class.java]
+        vm.bikeStations.observe(this, Observer(::updateBikeStations))
 
-        bikeStationsViewModel.fetchBikeStations()
+        if (savedInstanceState == null) {
+            vm.fetchBikeStations()
+        }
+
     }
 
     private fun initializeView() {
         bikeStationsAdapter.bikeStationClickListener =
             { bikeStationItem -> navigator.openBikeStationsDetails(this, bikeStationItem) }
 
-        with(bike_stations_list) {
-            layoutManager = LinearLayoutManager(this@BikeStationsActivity)
-            adapter = bikeStationsAdapter
-        }
+            bikeStationsList.adapter = bikeStationsAdapter
     }
 
     private fun updateBikeStations(resource: Resource<List<GeoBikeStation>>?) {
@@ -66,11 +61,11 @@ class BikeStationsActivity : BaseActivity() {
 
     private fun isLoading(isLoading: Boolean) {
         if (isLoading) {
-            bike_stations_list.invisible()
-            progress_bar.visible()
+            bikeStationsList.invisible()
+            progressBar.visible()
         } else {
-            bike_stations_list.visible()
-            progress_bar.invisible()
+            bikeStationsList.visible()
+            progressBar.invisible()
         }
     }
 

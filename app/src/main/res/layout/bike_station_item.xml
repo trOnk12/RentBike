@@ -7,7 +7,7 @@
               android:background="@drawable/rounded_rectangle">
 
     <com.example.rentbike.presentation.view.BikeStationView
-            android:id="@+id/bike_station_view"
+            android:id="@+id/bikeStationView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
     </com.example.rentbike.presentation.view.BikeStationView>

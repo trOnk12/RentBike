@@ -35,7 +35,7 @@ class BikeStationsAdapter
 
         fun bind(geoBikeStation: GeoBikeStation, bikeStationClickListener: (GeoBikeStation) -> Unit) {
             with(geoBikeStation) {
-                itemView.bike_station_view.setBikeStationModel(this)
+                itemView.bikeStationView.setBikeStationModel(this)
                 itemView.setOnClickListener { bikeStationClickListener(this) }
             }
         }

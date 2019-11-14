@@ -18,9 +18,4 @@ abstract class ViewModelModule {
     @ViewModelKey(BikeStationsViewModel::class)
     abstract fun bindsMoviesViewModel(bikeStationsViewModel: BikeStationsViewModel): ViewModel
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(BikeStationDetailViewModel::class)
-    abstract fun bindBikeStationDetailViewModel(bikeStationDetailViewModel: BikeStationDetailViewModel): ViewModel
-
 }

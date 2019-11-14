@@ -21,7 +21,7 @@ fun BikeStation.parseToGeoBikeStation(address: Address, distance: Float): GeoBik
         distance,
         latitude,
         longitude,
-        address,
+        address.formattedAddress,
         availableBikes,
         availableStations
     )

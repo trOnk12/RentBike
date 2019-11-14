@@ -10,7 +10,7 @@ data class GeoBikeStation(
     val distance: Float,
     val latitude: Double,
     val longitude: Double,
-    val address: Address,
+    val address: String,
     val availableBikes: Int,
     val availableStations: Int
 ) : Parcelable

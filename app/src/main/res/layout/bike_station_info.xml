@@ -14,13 +14,13 @@
             android:padding="16dp">
 
         <LinearLayout
-                android:id="@+id/general_information_container"
+                android:id="@+id/generalInformationContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
             <LinearLayout
-                    android:id="@+id/title_container"
+                    android:id="@+id/titleContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -30,7 +30,7 @@
                         android:textSize="32sp"
                         android:text="@{String.valueOf(geoBikeStation.number)}"
                         android:textColor="@color/colorPrimary"
-                        android:id="@+id/station_number"
+                        android:id="@+id/stationNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"/>
@@ -40,7 +40,7 @@
                         android:text="@{geoBikeStation.title}"
                         android:textSize="32sp"
                         android:textColor="@color/colorPrimary"
-                        android:id="@+id/station_title"
+                        android:id="@+id/stationTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -54,14 +54,14 @@
 
                 <TextView
                         tools:text="500m"
-                        android:id="@+id/current_location_distance"
+                        android:id="@+id/currentLocationDistance"
                         app:distance="@{geoBikeStation.distance}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="32dp"/>
 
                 <TextView
-                        android:text="@{geoBikeStation.address.address}"
+                        android:text="@{geoBikeStation.address}"
                         tools:text="Aleja Pokoju 20, Kraków"
                         android:id="@+id/address"
                         android:layout_width="wrap_content"
