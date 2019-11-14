@@ -1,9 +1,14 @@
 package com.example.rentbike.presentation.bikestationdetails
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.example.rentbike.R
+import com.example.rentbike.core.extension.askPermission
+import com.example.rentbike.core.extension.isHasPermission
 import com.example.rentbike.core.platform.BaseActivity
 import com.example.rentbike.domain.model.GeoBikeStation
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -26,8 +31,6 @@ class BikeStationDetailActivity : BaseActivity(), OnMapReadyCallback {
     }
 
     private val ZOOM_LEVEL = 13f
-
-    private lateinit var bikeStationDetailViewModel: BikeStationDetailViewModel
 
     private val geoBikeStation: GeoBikeStation by lazy {
         intent.getParcelableExtra(INTENT_EXTRA_PARAM_BIKE_STATION) as GeoBikeStation
@@ -59,6 +62,15 @@ class BikeStationDetailActivity : BaseActivity(), OnMapReadyCallback {
                     ZOOM_LEVEL
                 )
             )
+            if (ContextCompat.checkSelfPermission(
+                    this@BikeStationDetailActivity,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                isMyLocationEnabled = true
+                uiSettings.isMyLocationButtonEnabled = true
+            }
+
             addMarker(MarkerOptions().position(geoBikeMarker))
         }
     }
